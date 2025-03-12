@@ -1,0 +1,92 @@
+@tailwind components;
+
+@layer components {
+  .search-btn {
+    @apply relative;
+
+    ol {
+      @apply grid gap-12 pb-20;
+      li {
+        @apply cursor-pointer rounded-12 border-1 border-solid border-gray-400 text-16 font-light transition hover:bg-gray-400 hover:text-ui-black;
+
+        a {
+          @apply inline-block w-full p-20;
+        }
+      }
+    }
+
+    .desktop {
+      @apply hidden md:flex;
+    }
+
+    .mobile {
+      @apply md:hidden;
+
+      .icon-container {
+        @apply left-0 flex items-center py-10;
+
+        svg {
+          @apply h-20 w-20;
+          stroke: #aaa;
+        }
+      }
+    }
+  }
+
+  #search-input {
+    @apply h-full rounded-12 border-1 bg-gray-dark-4 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-yellow;
+  }
+
+  .input-container {
+    @apply flex h-40 rounded-12;
+
+    input {
+      @apply h-full rounded-8 border-t border-gray-dark-4 bg-gray-dark-2 pl-40 font-plex-sans text-14 font-light leading-18 placeholder-gray-dark-10 outline-0 transition-colors  hover:border-gray-dark-5 hover:bg-gray-dark-3;
+    }
+
+    .icon-container {
+      @apply absolute left-0 flex items-center p-10;
+
+      svg {
+        @apply h-20 w-20;
+        stroke: #aaa;
+      }
+    }
+  }
+
+  .search-box {
+    @apply relative h-auto;
+
+    > input {
+      @apply flex w-full rounded-12 border-0 bg-gray-dark-4 p-10 indent-8 text-16 font-light outline-0;
+    }
+
+    button {
+      @apply absolute right-10 top-1/2 -translate-y-1/2 transform rounded-12 border border-solid border-neutral-400	 p-2 text-10 font-light text-neutral-400 transition hover:opacity-80;
+    }
+
+    .no-results {
+      @apply p-10 text-16 font-light text-neutral-400;
+    }
+  }
+
+  .modal-open {
+    @apply fixed inset-2 z-105 flex justify-center bg-black bg-opacity-50;
+  }
+
+  .modal-user-box {
+    @apply relative z-118 m-20 mt-[15.5rem] h-480 w-640 rounded-12 bg-gray-dark-2 p-6 shadow-lg;
+  }
+
+  .modal-custom-search-container {
+    @apply w-full p-10;
+  }
+
+  .modal-hits-container {
+    @apply h-[400px] w-full overflow-hidden overflow-y-visible p-10;
+  }
+
+  .modal-no-result {
+    @apply m-5 py-10 text-16 font-light text-ui-mid-grey;
+  }
+}

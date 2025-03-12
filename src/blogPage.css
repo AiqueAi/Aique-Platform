@@ -1,0 +1,99 @@
+@import 'commonArticle.css';
+
+@tailwind components;
+
+@layer components {
+  .blog {
+    @apply m-auto max-w-[768px] pb-32 font-plex-sans text-18 leading-normal;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply pb-32 font-sans text-24 font-semibold leading-[1.125] text-gray-dark-12;
+      overflow-wrap: break-word;
+    }
+
+    strong {
+      @apply font-semibold;
+    }
+
+    h1 {
+      @apply text-38 -tracking-2;
+    }
+
+    h2 {
+      @apply text-32;
+    }
+
+    .anchor-link {
+      @apply cursor-pointer text-gray-dark-12 no-underline;
+
+      & .anchor-icon {
+        @apply hidden;
+      }
+    }
+
+    .anchor-link:hover {
+      & .anchor-icon {
+        @apply inline pl-4;
+      }
+    }
+
+    img,
+    video {
+      @apply m-0 max-w-[768px] rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5;
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      @apply pb-32 text-18 leading-normal text-gray-dark-11;
+    }
+
+    a {
+      @apply text-white underline decoration-gray-dark-8 underline-offset-4 transition-colors hover:decoration-gray-dark-10;
+    }
+
+    ul,
+    ol {
+      @apply pb-32 pl-32;
+
+      li {
+        @apply pb-10;
+      }
+
+      li p {
+        @apply pb-0;
+      }
+    }
+
+    ul {
+      li {
+        @apply list-disc;
+      }
+    }
+
+    hr {
+      @apply my-32 border-t-1 border-gray-dark-6 bg-transparent;
+    }
+
+    table,
+    td {
+      @apply mb-24 border p-10;
+      a {
+        @apply text-white decoration-gray-dark-8;
+      }
+      th {
+        @apply border bg-gray-dark-4 p-10 text-ui-white;
+      }
+      tr:nth-child(2n) {
+        @apply border bg-gray-dark-4;
+      }
+    }
+
+    .caret {
+      width: 2rem;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<script>
+  document.querySelectorAll('pre.astro-code').forEach((pre) => {
+    if (pre.querySelector('button')) {
+      return;
+    }
+
+    const copyContent = {
+      before: {
+        class:
+          'absolute z-1 p-4 text-[1rem] group hover:bg-glass rounded-bl-[.8rem] rounded-tr-[.8rem]',
+        icon: '<img src="/svg/copy-icon.svg" class="group-active:scale-90" alt="copy" />',
+      },
+      after: {
+        class:
+          'absolute z-1 p-4 text-[1rem] cursor-default rounded-bl-[.8rem] rounded-tr-[.8rem] pointer-events-none',
+        icon: '<img src="/svg/check.svg" class="scale-[0.8]" alt="check" />',
+      },
+    };
+
+    pre.classList.add('relative');
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = copyContent.before.class;
+    copyBtn.innerHTML = copyContent.before.icon;
+
+    copyBtn.addEventListener('click', () => {
+      copyBtn.className = copyContent.after.class;
+      copyBtn.innerHTML = copyContent.after.icon;
+      navigator.clipboard.writeText(pre.textContent || '');
+
+      setTimeout(() => {
+        copyBtn.className = copyContent.before.class;
+        copyBtn.innerHTML = copyContent.before.icon;
+      }, 3000);
+    });
+
+    const copyContainer = document.createElement('div');
+    copyContainer.className = 'flex justify-end';
+    copyContainer.appendChild(copyBtn);
+    pre.insertAdjacentElement('beforebegin', copyContainer);
+  });
+</script>

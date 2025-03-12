@@ -1,0 +1,18 @@
+---
+import Layout from '@layouts/Page.astro';
+import PricingModule from '@components/Pricing';
+import settings from '@base/settings.json';
+import AnnouncementModal from '@components/AnnouncementModal';
+---
+
+<Layout
+  title={settings.site.metadata.pricing.title}
+  description={settings.site.metadata.pricing.description}
+  slug={settings.site.metadata.pricing.slug}
+  image={settings.site.metadata.pricing.image}
+>
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
+  <main class="flex flex-col gap-16 pb-64">
+    <PricingModule client:load />
+  </main>
+</Layout>

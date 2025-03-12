@@ -1,0 +1,130 @@
+@import 'commonArticle.css';
+
+@tailwind components;
+
+@layer components {
+  .doc {
+    @apply font-plex-sans text-18 leading-loose;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply break-words py-10 font-sans font-semibold leading-40;
+    }
+
+    h1 {
+      @apply text-38 text-gray-dark-12;
+    }
+
+    h2 {
+      @apply text-32 text-gray-dark-12;
+    }
+
+    h3 {
+      @apply text-26 text-gray-dark-12;
+    }
+
+    h4 {
+      @apply font-medium text-gray-dark-12;
+    }
+
+    p > img {
+      @apply m-0 mb-20 rounded-8 p-0;
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      @apply pb-20 leading-normal;
+      width: 100%;
+    }
+
+    button p,
+    a p {
+      @apply pb-0;
+    }
+
+    a {
+      @apply text-yellow;
+    }
+
+    a:not(.no-underline) {
+      @apply hover:underline;
+    }
+
+    ul {
+      @apply pl-32;
+
+      li {
+        @apply list-disc pb-10;
+      }
+    }
+
+    .anchor-link {
+      @apply cursor-pointer pl-4 text-gray-dark-12;
+
+      & .anchor-icon {
+        @apply hidden;
+      }
+    }
+
+    .anchor-link:hover {
+      & .anchor-icon {
+        @apply inline pl-4;
+      }
+    }
+
+    table {
+      @apply w-full border-collapse border border-gray-dark-7;
+      border-spacing: 0;
+
+      th,
+      td {
+        @apply border border-gray-dark-7 text-start;
+        padding: 5px;
+      }
+
+      th {
+        @apply bg-gray-dark-7;
+      }
+
+      tr {
+        @apply text-start;
+      }
+
+      tr:nth-child(even) {
+        @apply bg-gray-dark-2;
+      }
+    }
+
+    ol {
+      display: block;
+      list-style-type: decimal;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+      unicode-bidi: isolate;
+      padding-bottom: 20px;
+    }
+
+    .callout .callout-indicator {
+      @apply gap-6;
+    }
+  }
+
+  .docs-search-container {
+    @apply pb-20 pr-8;
+    .search-input {
+      @apply w-full border-gray-dark-7 bg-gray-dark-2 hover:border-gray-dark-8 focus:border;
+    }
+  }
+
+  [data-menu-item='cli'],
+  [data-menu-item='sdk'],
+  [data-menu-item='faq'] {
+    text-transform: uppercase;
+  }
+}

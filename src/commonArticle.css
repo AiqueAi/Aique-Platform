@@ -1,0 +1,30 @@
+@tailwind components;
+
+@layer components {
+  #githubEdit {
+    @apply inline-block p-40 pl-0 font-plex-sans text-16 transition hover:opacity-50;
+
+    svg {
+      @apply mb-4;
+    }
+  }
+
+  main ~ #githubEdit {
+    @apply hidden;
+  }
+
+  .doc,
+  .blog {
+    pre {
+      @apply mb-20 rounded-8 bg-fleek-gradient p-10;
+      box-sizing: border-box;
+      display: block;
+
+      > code {
+        @apply inline-block bg-fleek-gradient p-20 text-16;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
